@@ -4,10 +4,7 @@
 yum update -y
 
 # Instala pacotes necessários
-yum install -y ca-certificates wget amazon-linux-extras 
-
-# Habilita o repositório do Docker
-amazon-linux-extras enable docker
+yum install -y ca-certificates wget amazon-efs-utils
 
 # Instala o Docker
 yum install -y docker
@@ -17,14 +14,12 @@ systemctl enable docker
 systemctl start docker
 
 # Adiciona o usuário ec2-user ao grupo docker para evitar uso de sudo
-usermod -aG docker ec2-user
+usermod -aG docker ec2 -user
 
 # Instala o Docker Compose manualmente
 curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-
-yum install -y amazon-efs-utils
 
 # Cria o diretório de montagem do EFS
 mkdir -p /data
@@ -33,24 +28,9 @@ mkdir -p /data
 # Substituir pelo mount do seu EFS
 mount -t efs -o tls fs-0492b12a70426e2c0:/ /data
 
-# Cria o arquivo docker-compose.yml
-cat <<EOF > /home/ec2-user/docker-compose.yml
-services:
-  wordpress:
-    image: wordpress:latest
-    container_name: wordpress
-    restart: always
-    ports:
-      - "80:80"
-    environment:
-      WORDPRESS_DB_HOST: "ENDPOINTDOBANCO:3306"
-      WORDPRESS_DB_USER: "admin"
-      WORDPRESS_DB_PASSWORD: "SENHADOBANCO"
-      WORDPRESS_DB_NAME: "wordpress"
-    volumes:
-      - /data:/var/www/html
-
-EOF
+#Pega o docker compose do github
+wget -O /home/ec2-user/docker-compose.yml https://raw.githubusercontent.com/arthurfudali/Wordpress-AWS/refs/heads/main/docker-compose.yml
+sudo chown ec2-user:ec2-user /home/ec2-user/docker-compose.yml
 
 # Ajusta permissões do arquivo
 chown ec2-user:ec2-user /home/ec2-user/docker-compose.yml

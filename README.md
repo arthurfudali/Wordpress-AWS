@@ -75,9 +75,9 @@ Crie o EFS:
 ![alt text](images/11.png)
 
 <aside>
-💡
 
-    Não esqueça de selecionar a VPC correta
+
+> 💡 Não esqueça de selecionar a VPC correta
 
 </aside>
 
@@ -94,9 +94,9 @@ Com os destinos de montagem criados, volte para a página do EFS e clique em `an
 Copie e anote a montagem usando o assistente me montagem EFS
 
 <aside>
-💡
 
-> A montagem deve se parecer com: `sudo mount -t efs -o tls fs-0492b12a70426e2c0:/ efs`
+
+> 💡 A montagem deve se parecer com: `sudo mount -t efs -o tls fs-0492b12a70426e2c0:/ efs`
 
 </aside>
 
@@ -145,9 +145,9 @@ services:
       - /data:/var/www/html
 ```
 <aside>
-💡
 
-> Lembre-se de substituir `WORDPRESS_DB_HOST` e `WORDPRESS_DB_PASSWORD` de acordo com o endpoint e as credenciais de seu banco.
+
+> 💡 Lembre-se de substituir `WORDPRESS_DB_HOST` e `WORDPRESS_DB_PASSWORD` de acordo com o endpoint e as credenciais de seu banco.
 
 </aside>
 
@@ -156,9 +156,9 @@ Com o arquivo criado, selecione a opção de visualização RAW:
 ![alt text](images/15.png)
 
 <aside>
-💡
 
-> O  link deve se parecer com: https://raw.githubusercontent.com/arthurfudali/Wordpress-AWS/refs/heads/main/docker-compose.yml
+
+> 💡 O  link deve se parecer com: https://raw.githubusercontent.com/arthurfudali/Wordpress-AWS/refs/heads/main/docker-compose.yml
 
 </aside>
 
@@ -208,9 +208,9 @@ cd /home/ec2-user && docker-compose up -d
 ```
 
 <aside>
-💡
 
-> Não esqueça de substituir o comando de montagem e o link do docker-compose
+
+> 💡 Não esqueça de substituir o comando de montagem e o link do docker-compose
 
 </aside>
 
@@ -253,9 +253,9 @@ E ative a opção de `verificações de integridade do ELB`
 Agora, após se certificar que as instâncias já estão criadas em `EC2 → Instâncias,` tente acessar a página do Wordpress via o `DNS do Load Balancer`
 
 <aside>
-💡
 
-> A partir desse momento você já deve ser capaz de acessar as configurações iniciais do Wordpress (lembre-se que demora alguns minutos para as instâncias se configurarem e o acesso ser liberado)
+
+> 💡 A partir desse momento você já deve ser capaz de acessar as configurações iniciais do Wordpress (lembre-se que demora alguns minutos para as instâncias se configurarem e o acesso ser liberado)
 
 > Caso o acesso não de certo, revise as configurações até agora.
 
@@ -286,9 +286,9 @@ Configure as ações:
 ![alt text](images/20.png)
 
 <aside>
-⚠️
 
-> Selecione no grupo a política criada dentro do ASG
+
+> ⚠️ Selecione no grupo a política criada dentro do ASG
 
 </aside>
 

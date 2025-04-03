@@ -13,6 +13,7 @@ O objetivo desse projeto e criar um sistema escalável e auto balanceado para ho
 Acesse a tela de criação de VPC (Virtual Private Cloud)
 
 Selecione as seguintes configurações:
+
 ![alt text](images/1.png)
 ![alt text](images/2.png)
 

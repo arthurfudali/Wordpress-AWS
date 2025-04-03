@@ -4,7 +4,10 @@
 yum update -y
 
 # Instala pacotes necessários
-yum install -y ca-certificates wget amazon-efs-utils docker
+yum install -y ca-certificates wget amazon-efs-utils
+
+# Instala o Docker
+yum install -y docker
 
 # Inicia e habilita o serviço do Docker
 systemctl enable docker
